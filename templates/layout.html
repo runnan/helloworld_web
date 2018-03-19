@@ -1,0 +1,34 @@
+<html>
+<head>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">LAK</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <p class="navbar-text navbar-right">
+          {{if .CurrentUser}}
+            Welcome {{.CurrentUser}} |
+            <a href="/sign-out" class="navbar-link">Sign Out
+            </a>
+          {{else}}
+            <a href="/register" class="navbar-link">Register
+            </a>
+          {{end}}
+        </p>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    {{if .Flash}}
+    <div class="alert alert-info">
+      {{.Flash}}
+    </div>
+    {{end}}
+    {{ yield }}
+  </div>
+</body>
+</html>

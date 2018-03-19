@@ -1,0 +1,28 @@
+{{define "products/index"}}
+<a href='/products/new'>
+  <button type="button" class="btn btn-primary">
+    <span class="glyphicon glyphicon-plus"></span> Add more items
+  </button>
+</a>
+<hr/>
+<div class="row">
+  {{if .Products}}
+    {{range .Products}}
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <span class="panel-title">{{.Name}}</span>
+          <span class="badge pull-right">{{.GetPrice}}</span>
+        </div>
+        <div class="panel-body">
+          <div>{{.Description}}</div>
+        </div>
+      </div>
+    </div>
+    {{end}}
+  {{else}}
+  <h2>No Products Yet</h2>
+  {{end}}
+</div>
+
+{{end}}
