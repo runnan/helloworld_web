@@ -22,6 +22,8 @@ func main() {
   r.Handle("/login", handler.HandleSessionNew).Methods("GET")
   r.Handle("/login", handler.HandleSessionCreate).Methods("POST")
   r.Handle("/sign-out", handler.HandleSessionDestroy).Methods("GET")
+
+  //Authen for product resource
   r.Handle("/products", route.AuthMiddleware(handler.HandleProducts)).Methods("GET")
   r.Handle("/products/new", route.AuthMiddleware(handler.HandleProductNew)).Methods("GET")
   r.Handle("/products/new", route.AuthMiddleware(handler.HandleProductCreate)).Methods("POST")
